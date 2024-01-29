@@ -21,7 +21,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('doctor')->default(0);
-            $table->tinyInteger('role');
             $table->rememberToken();
             $table->timestamps();
         });

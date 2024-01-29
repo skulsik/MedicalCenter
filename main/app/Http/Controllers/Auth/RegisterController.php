@@ -64,19 +64,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // По умолчанию только что зарегистрирорванный пользователь с правами user
-        $role = 3;
-        // Если в users нет записей создает первого пользователя с правами admin (суперпользователь)
-        if (User::where('role', 1)->doesntExist())
-        {
-            $role = 1;
-        }
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role' => $role,
         ]);
     }
 }
